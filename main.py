@@ -71,7 +71,14 @@ HEARTBEAT_MULTIPLIER = 1.5  # Heartbeat aralığını artırarak yükü azalt
 if askim == 1:
     print(_I)
     with open(_J, 'r') as token_file:
-        tokens = [t.strip() for t in token_file.readlines() if t.strip()]
+        tokens = []
+        for t in token_file.readlines():
+            token = t.strip()
+            if token:
+                # Tırnakları temizle (hem tek hem çift tırnak)
+                token = token.strip('"').strip("'").strip()
+                if token:
+                    tokens.append(token)
     server_id = input(_K)
     channel_id = input(_L)
 
