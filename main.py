@@ -22,15 +22,11 @@ from pystyle import *
 import os
 from colorama import *
 import time, asyncio, json, websockets
-from json import loads
-from time import sleep
-from websocket import WebSocket
-from concurrent.futures import ThreadPoolExecutor
 import random
 
 os.system('clear' if os.name == 'posix' else 'cls')
 
-intro = '''
+intro = r'''
 
    _____ _____ _______ _    _ _    _ ____   _____ ____  __  __     ________ ______ ______ _  _______  ____           _____ 
   / ____|_   _|__   __| |  | | |  | |  _ \ / ____/ __ \|  \/  |   / /  ____|  ____|  ____| |/ /  __ \|  _ \   /\    / ____|
@@ -47,7 +43,7 @@ intro = '''
 
 Anime.Fade(Center.Center(intro), Colors.red_to_yellow, Colorate.Vertical, interval=.035, enter=_C)
 
-print(f"""{Fore.LIGHTBLUE_EX}
+print(fr"""{Fore.LIGHTBLUE_EX}
                                                                                                                                                 
    _____ _____ _______ _    _ _    _ ____   _____ ____  __  __     ________ ______ ______ _  _______  ____           _____ 
   / ____|_   _|__   __| |  | | |  | |  _ \ / ____/ __ \|  \/  |   / /  ____|  ____|  ____| |/ /  __ \|  _ \   /\    / ____|
@@ -63,8 +59,7 @@ time.sleep(1)
 
 Write.Print('\nWhich option do you want to choose: ', Colors.red_to_yellow)
 Write.Print('\n> 1 - join voice ', Colors.red_to_yellow)
-Write.Print('\n> 2 - voice spam ', Colors.red_to_yellow)
-Write.Print('\n> 3 - exit ', Colors.red_to_yellow)
+Write.Print('\n> 2 - exit ', Colors.red_to_yellow)
 
 askim = int(input('\nchoice: '))
 
@@ -127,64 +122,6 @@ if askim == 1:
     asyncio.run(main())
 
 elif askim == 2:
-    print(_I)
-    tokenlist = [t.strip() for t in open(_J, 'r').read().splitlines() if t.strip()]
-    server = input(_K)
-    channel = input(_L)
-    stream = input('Stream: (y/n) ').lower() == 'y'
-    video = input('Video: (y/n) ').lower() == 'y'
-
-    executor = ThreadPoolExecutor(max_workers=MAX_WORKERS)
-
-    def run(token):
-        while _C:
-            try:
-                ws = WebSocket()
-                ws.connect('wss://gateway.discord.gg/?v=9&encoding=json')
-                hello = loads(ws.recv())
-                heartbeat_interval = hello[_A][_M] * HEARTBEAT_MULTIPLIER
-                ws.send(json.dumps({
-                    _B: 2,
-                    _A: {'token': token, _N: {'': _Q, _O: _R, _P: _S}}
-                }))
-                ws.send(json.dumps({
-                    _B: 4,
-                    _A: {
-                        _E: server,
-                        _F: channel,
-                        _G: _D,  # self_mute False - mikrofon açık
-                        _H: _D,  # self_deaf False - kulaklık açık
-                        'self_stream': stream,
-                        'self_video': video
-                    }
-                }))
-                ws.send(json.dumps({
-                    _B: 18,
-                    _A: {'type': 'guild', _E: server, _F: channel, 'preferred_region': 'singapore'}
-                }))
-
-                while _C:
-                    sleep(heartbeat_interval / 1000)
-                    try:
-                        ws.send(json.dumps({
-                            _B: 1,
-                            _A: random.randint(1, 1000000)
-                        }))
-                        sleep(1)
-                    except Exception:
-                        print(f"Token {token[:10]}... için heartbeat veya spam hatası, yeniden bağlanıyor.")
-                        break
-            except Exception as e:
-                print(f"Token {token[:10]}... bağlantı hatası: {e}, {RECONNECT_DELAY} saniye sonra yeniden deniyor.")
-                sleep(RECONNECT_DELAY)
-
-    os.system(f"title Total Tokens: {len(tokenlist)}")
-    for token in tokenlist[:MAX_WORKERS]:
-        executor.submit(run, token)
-        print('[+] Joined voice channel')
-        sleep(random.uniform(0.5, 1.0))  # Daha uzun rate limit gecikmesi
-
-elif askim == 3:
     print('Exiting the program...')
 else:
     print('You have entered invalid. Please try again.')
