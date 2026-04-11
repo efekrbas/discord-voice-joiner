@@ -32,16 +32,36 @@
    pip install -r requirements.txt
    ```
 3. Add your Discord tokens to `tokens.txt` (one per line).
-4. Launch the application (Run `main.pyw` for a terminal-free experience):
-   ```bash
-   python main.pyw
-   ```
 
-## 📋 Usage
+## 📋 Usage Methods
 
-- **Dashboard:** Enter Server and Channel ID to join all tokens or issue bulk commands.
-- **Accounts:** Monitor live bot status (Connected/Disconnected) and toggle microphone/headphones instantly using the lock button.
-- **Settings:** Choose your favorite theme via "Appearance Mode" in the bottom-left.
+You can use this tool in two different ways depending on your needs.
+
+### 1. Dashboard Mode (GUI)
+A modern and visual interface with full control over all accounts.
+
+- **Launch:** Run `main.pyw` for a terminal-free experience:
+  ```bash
+  python main.pyw
+  ```
+- **Features:** 
+  - Manage bot status with a live dashboard.
+  - Bulk controls for Join/Stop, Mute, Deafen, and Stream.
+  - Theme support (AMOLED Black / Full White).
+
+### 2. Command Line Mode (CLI)
+A lightweight and performance-driven terminal interface, ideal for VDS/VPS environments.
+
+- **Launch:** Navigate to the `cli` folder and run `main.py`:
+  ```bash
+  cd cli
+  python main.py
+  ```
+- **Features:**
+  - Minimal resource usage.
+  - Fast connection loop.
+  - Optimized for 24/7 uptime in terminal environments.
+
 
 ## ⚠️ Important Notes
 
