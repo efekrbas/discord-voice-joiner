@@ -3,7 +3,7 @@
 ![April 2026 Integrity Ready](https://img.shields.io/badge/Discord--API-April%202026%20Ready-blue?style=for-the-badge)
 ![UI](https://img.shields.io/badge/UI-PyQt6%20AMOLED-000000?style=for-the-badge)
 
-**Manage your Discord accounts voice activity 24/7**
+**Keep your Discord accounts active in voice channels 24/7**
 
 **Discord Voice Manager** is a modern, high-performance dashboard designed to manage multiple Discord accounts simultaneously in voice channels. Fully compliant with April 2026 security protocols.
 
