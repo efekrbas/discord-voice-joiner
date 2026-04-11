@@ -27,21 +27,18 @@
 ## 🛠️ Installation
 
 1. Ensure Python 3.10+ is installed.
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Add your Discord tokens to `tokens.txt` (one per line).
+2. Add your Discord tokens to `tokens.txt` inside the `gui/` or `cli/` folder.
+3. Choose your interface below and run the installation script.
 
 ## 📋 Usage Methods
-
-You can use this tool in two different ways depending on your needs.
 
 ### 1. Dashboard Mode (GUI)
 A modern and visual interface with full control over all accounts.
 
+- **Setup:** Navigate to the `gui` folder and run `install.bat`.
 - **Launch:** Run `main.pyw` for a terminal-free experience:
   ```bash
+  cd gui
   python main.pyw
   ```
 - **Features:** 
@@ -52,7 +49,8 @@ A modern and visual interface with full control over all accounts.
 ### 2. Command Line Mode (CLI)
 A lightweight and performance-driven terminal interface, ideal for VDS/VPS environments.
 
-- **Launch:** Navigate to the `cli` folder and run `main.py`:
+- **Setup:** Navigate to the `cli` folder and run `install.bat`.
+- **Launch:** Run `main.py`:
   ```bash
   cd cli
   python main.py
