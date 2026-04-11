@@ -5,7 +5,7 @@
 
 **Keep your Discord accounts active in voice channels 24/7**
 
-**Discord Voice Manager** is a modern, high-performance dashboard designed to manage multiple Discord accounts simultaneously in voice channels. Fully compliant with April 2026 security protocols.
+**Discord Voice Joiner** is a modern, high-performance dashboard designed to manage multiple Discord accounts simultaneously in voice channels. Fully compliant with April 2026 security protocols.
 
 ## 🚀 Key Features
 
