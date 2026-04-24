@@ -145,13 +145,7 @@ class MainWindow(QMainWindow):
         self.sidebar.setObjectName("Sidebar")
         self.sidebar.setFixedWidth(240)
         sidebar_layout = QVBoxLayout(self.sidebar)
-        sidebar_layout.setContentsMargins(0, 20, 0, 20)
-
-        self.logo = QLabel("VOICE JOINER")
-        self.logo.setFont(QFont("Outfit", 18, QFont.Weight.Bold))
-        self.logo.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.logo.setStyleSheet("margin-bottom: 30px; color: #3a86ff; background: transparent;")
-        sidebar_layout.addWidget(self.logo)
+        sidebar_layout.setContentsMargins(0, 12, 0, 20)
 
         self.nav_btns = []
         self.btn_dashboard = self.create_nav_btn("Dashboard", 0, sidebar_layout)
@@ -200,7 +194,7 @@ class MainWindow(QMainWindow):
         page = QWidget()
         page.setObjectName("MainContent")
         layout = QVBoxLayout(page)
-        layout.setContentsMargins(40, 40, 40, 40)
+        layout.setContentsMargins(40, 20, 40, 40)
 
         title = QLabel("Dashboard")
         title.setFont(QFont("Outfit", 24, QFont.Weight.Bold))
