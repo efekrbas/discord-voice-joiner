@@ -51,14 +51,15 @@ A modern and visual interface with full control over all accounts.
 A lightweight and performance-driven terminal interface, ideal for VDS/VPS environments.
 
 - **Setup:** Navigate to the `cli` folder and run `install.bat` (Windows) or `install.sh` (Linux/macOS).
-- **Launch:** Run `main.py`:
+- **Launch:** Run `main.py` and enter your Server ID and Channel ID when prompted:
   ```bash
   cd cli
   python main.py
   ```
 - **Features:**
+  - No menu — launches directly into voice connection.
   - Minimal resource usage.
-  - Fast connection loop.
+  - Fast connection loop with auto-reconnect.
   - Optimized for 24/7 uptime in terminal environments.
 
 
