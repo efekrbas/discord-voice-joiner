@@ -147,7 +147,7 @@ class MainWindow(QMainWindow):
         sidebar_layout = QVBoxLayout(self.sidebar)
         sidebar_layout.setContentsMargins(0, 20, 0, 20)
 
-        self.logo = QLabel("VOICE MANAGER")
+        self.logo = QLabel("VOICE JOINER")
         self.logo.setFont(QFont("Outfit", 18, QFont.Weight.Bold))
         self.logo.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.logo.setStyleSheet("margin-bottom: 30px; color: #3a86ff; background: transparent;")
