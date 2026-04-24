@@ -35,7 +35,7 @@
 ### 1. Dashboard Mode (GUI)
 A modern and visual interface with full control over all accounts.
 
-- **Setup:** Navigate to the `gui` folder and run `install.bat`.
+- **Setup:** Navigate to the `gui` folder and run `install.bat` (Windows) or `install.sh` (Linux/macOS).
 - **Launch:** Run `main.pyw` for a terminal-free experience:
   ```bash
   cd gui
@@ -49,7 +49,7 @@ A modern and visual interface with full control over all accounts.
 ### 2. Command Line Mode (CLI)
 A lightweight and performance-driven terminal interface, ideal for VDS/VPS environments.
 
-- **Setup:** Navigate to the `cli` folder and run `install.bat`.
+- **Setup:** Navigate to the `cli` folder and run `install.bat` (Windows) or `install.sh` (Linux/macOS).
 - **Launch:** Run `main.py`:
   ```bash
   cd cli
