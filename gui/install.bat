@@ -1,5 +1,5 @@
 @echo off
-title Discord Voice Manager Installer
+title Discord Voice Joiner Installer
 echo Installing dependencies...
 pip install -r requirements.txt
 echo.

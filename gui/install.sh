@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Discord Voice Manager Installer"
+echo "Discord Voice Joiner Installer"
 echo "Installing dependencies..."
 pip install -r requirements.txt
 echo ""

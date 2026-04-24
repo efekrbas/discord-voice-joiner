@@ -77,7 +77,7 @@ class MainWindow(QMainWindow):
         self.manager = manager
         self.tokens = []
         
-        self.setWindowTitle("Discord Voice Manager")
+        self.setWindowTitle("Discord Voice Joiner")
         if os.path.exists("icon.ico"):
             self.setWindowIcon(QIcon("icon.ico"))
         self.resize(1200, 750)
