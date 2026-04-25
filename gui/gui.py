@@ -386,17 +386,22 @@ class MainWindow(QMainWindow):
     def load_tokens(self):
         if os.path.exists("tokens.txt"):
             with open("tokens.txt", "r") as f:
+                file_tokens = []
                 for line in f:
                     clean_line = line.strip()
                     if not clean_line or clean_line.startswith("//"):
                         continue
                     t = clean_line.strip('"').strip("'").strip()
                     if t:
-                        self.tokens.append(t)
-                        self.manager.add_token(t)
+                        file_tokens.append(t)
+            for t in file_tokens:
+                if t not in self.tokens:
+                    self.tokens.append(t)
+                    self.manager.add_token(t)
             self.lbl_total_tokens.setText(str(len(self.tokens)))
 
     def refresh_stats(self):
+        self.load_tokens()
         active = sum(1 for b in self.manager.bots.values() if b.status == "Connected")
         self.lbl_active_tokens.setText(str(active))
 

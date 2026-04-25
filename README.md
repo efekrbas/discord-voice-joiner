@@ -7,6 +7,15 @@
 
 **Discord Voice Joiner** is a modern, high-performance dashboard designed to manage multiple Discord accounts simultaneously in voice channels. Fully compliant with April 2026 security protocols.
 
+## 📸 Screenshots
+
+### GUI Dashboard
+![GUI Dashboard](images/screenshot1.png)
+![GUI Accounts](images/screenshot2.png)
+
+### CLI Interface
+![CLI Interface](images/screenshot3.png)
+
 ## 🚀 Key Features
 
 - **Modern PyQt6 Interface:** Fluid, fast, and stable desktop experience.

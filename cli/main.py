@@ -62,13 +62,20 @@ with open(_J, 'r') as token_file:
     tokens = []
     for t in token_file.readlines():
         token = t.strip()
+        if not token or token.startswith('//'):
+            continue
+        token = token.strip('"').strip("'").strip()
         if token:
-            # Tırnakları temizle (hem tek hem çift tırnak)
-            token = token.strip('"').strip("'").strip()
-            if token:
-                tokens.append(token)
-server_id = input(_K)
-channel_id = input(_L)
+            tokens.append(token)
+def ask_id(prompt):
+    while True:
+        value = input(prompt).strip()
+        if value.isdigit():
+            return value
+        os.system('clear' if os.name == 'posix' else 'cls')
+
+server_id = ask_id(_K)
+channel_id = ask_id(_L)
 
 async def connect(token):
     while _C:
@@ -100,10 +107,9 @@ async def connect(token):
                             _A: random.randint(1, 1000000)
                         }))
                     except Exception:
-                        print(f"Token {token[:10]}... için heartbeat başarısız, yeniden bağlanıyor.")
                         break
         except Exception as e:
-            print(f"Token {token[:10]}... bağlantı hatası: {e}, {RECONNECT_DELAY} saniye sonra yeniden deniyor.")
+            print(f"Token {token[:10]}... connection error: {e}, retrying in {RECONNECT_DELAY} seconds.")
             await asyncio.sleep(RECONNECT_DELAY)
 
 async def main():
