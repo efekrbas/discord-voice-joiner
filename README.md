@@ -9,7 +9,7 @@
 
 ## 📸 Screenshots
 
-### GUI Dashboard
+### GUI
 ![GUI Dashboard](images/screenshot1.png)
 ![GUI Accounts](images/screenshot2.png)
 
