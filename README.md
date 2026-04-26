@@ -51,7 +51,7 @@ A modern and visual interface with full control over all accounts.
   python main.pyw
   ```
 - **Features:** 
-  - Manage bot status with a live dashboard.
+  - Manage account status with a live dashboard.
   - Bulk controls for Join/Stop, Mute, Deafen, and Stream.
   - Theme support (AMOLED Black / Full White).
   - Standalone `.exe` build available — no Python installation required.
@@ -82,7 +82,7 @@ A lightweight and performance-driven terminal interface, ideal for VDS/VPS envir
 - **Stable Internet:** A wired connection (Ethernet) is highly recommended for long-term stability.
 - **Power Settings:** Disable "Sleep" and "Hibernate" modes on your Windows PC to prevent the application from pausing.
 - **VDS/VPS Usage:** For 100% uptime without leaving your personal computer on, running this tool on a Virtual Private Server (VPS) is recommended.
-- **Auto-Reconnect:** The application includes a built-in recovery loop that automatically restores bot connections after network fluctuations or Discord gateway resets.
+- **Auto-Reconnect:** The application includes a built-in recovery loop that automatically restores account connections after network fluctuations or Discord gateway resets.
 
 ---
 **Developed by Efe Kırbaş**
