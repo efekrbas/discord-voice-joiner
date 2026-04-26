@@ -1,0 +1,5 @@
+// --- INSTRUCTIONS ---
+// 1. Add your Discord tokens below, one per line.
+// 2. Do not use quotes unless they are part of the token.
+// 3. To ignore a token, add // at the beginning of the line.
+// --------------------
