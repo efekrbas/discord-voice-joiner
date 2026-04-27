@@ -27,10 +27,11 @@
   - `X-Discord-Fingerprint` automatic experiment fetching.
   - API v10 protocol support.
 - **Advanced Bulk Controls:**
-  - One-click Join / Stop for all tokens.
-  - Bulk Mute and Deafen.
+  - One-click Join, Kick, and Stop for all tokens.
+  - Bulk Mute and Deafen parameters.
   - Bulk Camera (Video) and Stream (Go Live) toggles.
-  - **Mute & Deafen (Silence)** combination.
+  - **Random Event Engine:** Individually assigns independent voice features across active tokens.
+  - **Clear Event:** Instantly resets combinations back to primary modes.
 - **Individual Account Management:** Detailed control for each account, status monitoring, and channel switching.
 
 ## 🛠️ Installation

@@ -33,6 +33,8 @@ QPushButton[styleClass="success"] { background-color: #1b5e20; }
 QPushButton[styleClass="success"]:hover { background-color: #27ae60; }
 QPushButton[styleClass="danger"] { background-color: #b71c1c; }
 QPushButton[styleClass="danger"]:hover { background-color: #e74c3c; }
+QPushButton[styleClass="warning"] { background-color: #f39c12; color: white; }
+QPushButton[styleClass="warning"]:hover { background-color: #e67e22; }
 QLineEdit { background-color: #050505; color: white; border: 1px solid #1a1a1a; border-radius: 6px; padding: 8px; }
 QLabel { color: #e0e0e0; background: transparent; }
 QScrollArea, QScrollArea QWidget { background-color: #000000; border: none; }
@@ -59,6 +61,8 @@ QPushButton#BulkBtn { background-color: #f1f3f5; color: #495057; border: 1px sol
 QPushButton#BulkBtn:hover { background-color: #e9ecef; }
 QPushButton[styleClass="success"] { background-color: #2ecc71; }
 QPushButton[styleClass="danger"] { background-color: #e74c3c; }
+QPushButton[styleClass="warning"] { background-color: #e67e22; color: white; }
+QPushButton[styleClass="warning"]:hover { background-color: #d35400; }
 QLineEdit { background-color: #ffffff; color: #000000; border: 1px solid #dee2e6; border-radius: 6px; padding: 8px; }
 QLabel { color: #212529; background: transparent; }
 QScrollArea, QScrollArea QWidget { background-color: #ffffff; border: none; }
@@ -234,11 +238,13 @@ class MainWindow(QMainWindow):
         btn_join.clicked.connect(self.bulk_join_all)
         btn_row.addWidget(btn_join)
 
-        btn_stop = QPushButton("Stop All")
-        btn_stop.setProperty("styleClass", "danger")
-        btn_stop.setCursor(Qt.CursorShape.PointingHandCursor)
-        btn_stop.clicked.connect(self.bulk_stop_all)
-        btn_row.addWidget(btn_stop)
+
+
+        btn_kick = QPushButton("Kick All")
+        btn_kick.setProperty("styleClass", "danger")
+        btn_kick.setCursor(Qt.CursorShape.PointingHandCursor)
+        btn_kick.clicked.connect(self.bulk_kick_all)
+        btn_row.addWidget(btn_kick)
         btn_row.addStretch()
         join_layout.addLayout(btn_row)
 
@@ -264,6 +270,8 @@ class MainWindow(QMainWindow):
         grid.addWidget(self.create_bulk_btn("Stream ON All", lambda: self.bulk_stream(True)), 1, 3)
         grid.addWidget(self.create_bulk_btn("Video OFF All", lambda: self.bulk_video(False)), 2, 0)
         grid.addWidget(self.create_bulk_btn("Stream OFF All", lambda: self.bulk_stream(False)), 2, 1)
+        grid.addWidget(self.create_bulk_btn("Random Event All", lambda: self.bulk_random_all()), 2, 2)
+        grid.addWidget(self.create_bulk_btn("Clear Event All", lambda: self.bulk_clear_all()), 2, 3)
         actions_layout.addLayout(grid)
 
         layout.addWidget(actions_group)
@@ -354,6 +362,28 @@ class MainWindow(QMainWindow):
     @asyncSlot()
     async def bulk_stream(self, s):
         for b in self.manager.bots.values(): await b.update_stream(stream=s)
+        self.refresh_management_table()
+
+    @asyncSlot()
+    async def bulk_random_all(self):
+        for b in self.manager.bots.values():
+            await b.update_audio(mute=random.choice([True, False]), deaf=random.choice([True, False]))
+            await b.update_video(video=random.choice([True, False]))
+            await b.update_stream(stream=random.choice([True, False]))
+        self.refresh_management_table()
+
+    @asyncSlot()
+    async def bulk_clear_all(self):
+        for b in self.manager.bots.values():
+            await b.update_audio(mute=False, deaf=False)
+            await b.update_video(video=False)
+            await b.update_stream(stream=False)
+        self.refresh_management_table()
+
+    @asyncSlot()
+    async def bulk_kick_all(self):
+        for b in self.manager.bots.values():
+            await b.leave_channel()
         self.refresh_management_table()
 
     @asyncSlot()
