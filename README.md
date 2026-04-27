@@ -66,9 +66,10 @@ A lightweight and performance-driven terminal interface, ideal for VDS/VPS envir
   python main.py
   ```
 - **Features:**
-  - No menu — launches directly into voice connection.
-  - Minimal resource usage.
-  - Fast connection loop with auto-reconnect.
+  - Lightweight interactive terminal mode.
+  - Supports custom configuration prompts for **Deafen**, **Mute**, **Stream (Go Live)**, and **Video**.
+  - Smooth typewrite login logs with zero duplicate prints.
+  - Minimal resource usage & fast connection loop with auto-reconnect.
   - Optimized for 24/7 uptime in terminal environments.
 
 
