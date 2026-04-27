@@ -46,7 +46,7 @@
 A modern and visual interface with full control over all accounts.
 
 - **Setup:** Navigate to the `gui` folder and run `install.bat` (Windows) or `install.sh` (Linux/macOS).
-- **Launch:** Run `main.pyw` for a terminal-free experience, or use the standalone `VoiceJoiner.exe` from the `dist/` folder:
+- **Launch:** Run `main.pyw` for a clean, windowed experience:
   ```bash
   cd gui
   python main.pyw
@@ -55,7 +55,6 @@ A modern and visual interface with full control over all accounts.
   - Manage account status with a live dashboard.
   - Bulk controls for Join/Stop, Mute, Deafen, and Stream.
   - Theme support (AMOLED Black / Full White).
-  - Standalone `.exe` build available — no Python installation required.
 
 ### 2. Command Line Mode (CLI)
 A lightweight and performance-driven terminal interface, ideal for VDS/VPS environments.
