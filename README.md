@@ -37,7 +37,7 @@
 ## 🛠️ Installation
 
 1. Ensure Python 3.10+ is installed.
-2. Add your Discord tokens to `tokens.txt` inside the `gui/` or `cli/` folder.
+2. Add your Discord tokens to `tokens.txt` in the main folder.
 3. Choose your interface below and run the installation script.
 
 ## 📋 Usage Methods

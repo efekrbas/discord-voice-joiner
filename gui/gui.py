@@ -414,8 +414,9 @@ class MainWindow(QMainWindow):
     async def single_leave(self, b): await b.leave_channel(); self.refresh_management_table()
 
     def load_tokens(self):
-        if os.path.exists("tokens.txt"):
-            with open("tokens.txt", "r") as f:
+        tokens_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tokens.txt")
+        if os.path.exists(tokens_path):
+            with open(tokens_path, "r") as f:
                 file_tokens = []
                 for line in f:
                     clean_line = line.strip()
