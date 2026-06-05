@@ -68,9 +68,10 @@ A lightweight and performance-driven terminal interface, ideal for VDS/VPS envir
 - **Features:**
   - Lightweight interactive terminal mode.
   - Supports custom configuration prompts for **Deafen**, **Mute**, **Stream (Go Live)**, and **Video**.
+  - **New:** Per-token channel configuration (choose to join all to one channel or assign channels individually).
   - Smooth typewrite login logs with zero duplicate prints.
   - Minimal resource usage & fast connection loop with auto-reconnect.
-  - Optimized for 24/7 uptime in terminal environments.
+  - Optimized for 24/7 uptime in terminal environments with an instant exit system.
 
 
 ## ⚠️ Important Notes
