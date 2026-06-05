@@ -90,8 +90,22 @@ def ask_yn(prompt):
             return value == 'y'
 
 
-server_id = ask_id(_K)
-channel_id = ask_id(_L)
+same_channel = ask_yn("> Will all tokens join the same server and channel? (y/n) ")
+token_configs = []
+
+if same_channel:
+    server_id = ask_id(_K)
+    channel_id = ask_id(_L)
+    for token in tokens:
+        token_configs.append((token, server_id, channel_id))
+else:
+    for token in tokens:
+        print(f"\n> Token: {token[:15]}...")
+        server_id = ask_id(_K)
+        channel_id = ask_id(_L)
+        token_configs.append((token, server_id, channel_id))
+
+print()
 random_event = ask_yn("> Random Event (Manual selection will be disabled) (y/n): ")
 if random_event:
     deafen = "random"
@@ -129,7 +143,7 @@ async def typewrite_log(token_str, m, d, v, s):
 active_sessions = []
 connected_count = 0
 
-async def connect(token):
+async def connect(token, t_server_id, t_channel_id):
     logged = False
     while _C:
         try:
@@ -139,7 +153,7 @@ async def connect(token):
                 ping_timeout=60,
                 max_size=None
             ) as websocket:
-                session_record = {'ws': websocket, 'server_id': server_id}
+                session_record = {'ws': websocket, 'server_id': t_server_id}
                 active_sessions.append(session_record)
                 try:
                     hello = await websocket.recv()
@@ -171,7 +185,7 @@ async def connect(token):
 
                     await websocket.send(json.dumps({
                         _B: 4,
-                        _A: {_E: server_id, _F: channel_id, _G: token_mute, _H: token_deafen, 'self_video': token_video}
+                        _A: {_E: t_server_id, _F: t_channel_id, _G: token_mute, _H: token_deafen, 'self_video': token_video}
                     }))
                     if not logged:
                         async with print_lock:
@@ -186,8 +200,8 @@ async def connect(token):
                             'op': 18,
                             'd': {
                                 'type': 'guild',
-                                'guild_id': server_id,
-                                'channel_id': channel_id,
+                                'guild_id': t_server_id,
+                                'channel_id': t_channel_id,
                                 'preferred_region': None
                             }
                         }))
@@ -254,8 +268,9 @@ async def main():
     main_loop = asyncio.get_running_loop()
     print()
     tasks = []
-    for token in tokens[:MAX_WORKERS]:  # Limit number of tokens
-        task = asyncio.create_task(connect(token))
+    for config in token_configs[:MAX_WORKERS]:  # Limit number of tokens
+        token, s_id, c_id = config
+        task = asyncio.create_task(connect(token, s_id, c_id))
         tasks.append(task)
         await asyncio.sleep(0.5)  # Delay for rate limit
     target_count = len(tokens[:MAX_WORKERS])
@@ -273,5 +288,6 @@ async def main():
 
 try:
     asyncio.run(main())
+    os._exit(0)
 except KeyboardInterrupt:
-    pass
+    os._exit(0)
