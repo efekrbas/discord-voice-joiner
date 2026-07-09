@@ -1,4 +1,4 @@
-# <img src="images/icon.png" width="32" height="32" align="center"> Discord Voice Joiner
+# <img src="images/icon.png" width="32" height="32" align="absmiddle"> Discord Voice Joiner
 
 ![April 2026 Integrity Ready](https://img.shields.io/badge/Discord--API-April%202026%20Ready-blue?style=for-the-badge)
 ![UI](https://img.shields.io/badge/UI-PyQt6%20AMOLED-000000?style=for-the-badge)
