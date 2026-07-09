@@ -1,5 +1,5 @@
-# <img src="https://raw.githubusercontent.com/efekrbas/discord-voice-joiner/refs/heads/main/gui/icon.ico" width="32" height="32" align="center"> Discord Voice Joiner
-
+# <img src="images/icon.png" width="32" height="32" align="center"> Discord Voice Joiner
+ino
 ![April 2026 Integrity Ready](https://img.shields.io/badge/Discord--API-April%202026%20Ready-blue?style=for-the-badge)
 ![UI](https://img.shields.io/badge/UI-PyQt6%20AMOLED-000000?style=for-the-badge)
 
